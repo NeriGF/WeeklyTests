@@ -1,0 +1,66 @@
+name: Target PID Matrix Nightly
+
+on:
+  schedule:
+    - cron: "0 9 * * *"  # 9:00 UTC daily (adjust)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      PLATFORM: ios
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run matrix
+        run: |
+          python scripts/run_matrix.py
+
+      - name: Post Slack
+        if: always()
+        run: |
+          python scripts/post_slack.py
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add results/latest.json results/diff.json results/history || true
+          git commit -m "Update results (nightly)" || echo "No changes"
+          git push || true
+
+      - name: Publish dashboard to gh-pages
+        if: always()
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp -R web/* _site/
+          mkdir -p _site/results
+          cp -R results/* _site/results/
+          # Create a simple 404 fallback for GH Pages routing (optional)
+          cp _site/index.html _site/404.html
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          publish_branch: gh-pages
