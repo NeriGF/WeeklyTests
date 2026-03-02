@@ -1,0 +1,32 @@
+{
+  "rules": [
+    {
+      "when": { "build_id": "weeklytest-high" },
+      "expect_any_of": [
+        [
+          "com.adobe.lrmobilephone.ios.100gb.4999usd.1y.v1",
+          "com.adobe.lrmobilephone.ios.100gb.7.99usd.1w.v2"
+        ]
+      ]
+    },
+    {
+      "when": { "build_id": "weeklytest-low" },
+      "expect_any_of": [
+        [
+          "com.adobe.lrmobilephone.ios.100gb.4999usd.1y.v1",
+          "com.adobe.lrmobilephone.ios.100gb.299usd.1w.v3"
+        ]
+      ]
+    },
+
+    {
+      "when": { "appStoreCountryCode": "DEU", "build_id": "weeklytest-t2" },
+      "expect_any_of": [
+        [
+          "com.adobe.lrmobilephone.ios.40gb.1999usd.1y.v2",
+          "com.adobe.lrmobilephone.ios.40gb.079usd.1w.v2"
+        ]
+      ]
+    }
+  ]
+}

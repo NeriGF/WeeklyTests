@@ -1,0 +1,18 @@
+{
+  "edge_url": "https://adobecorp.data.adobedc.net/ee/or2/v1/interact?configId=fec951b9-1d4b-4625-80dd-0bbd0d764a4f",
+  "cases": [
+    { "name": "USA_T1_HIGH_in",  "appStoreCountryCode": "USA", "build_id": "weeklytest-high", "logged_in": true  },
+    { "name": "USA_T1_HIGH_out", "appStoreCountryCode": "USA", "build_id": "weeklytest-high", "logged_in": false },
+
+    { "name": "USA_T1_LOW_in",   "appStoreCountryCode": "USA", "build_id": "weeklytest-low",  "logged_in": true  },
+    { "name": "USA_T1_LOW_out",  "appStoreCountryCode": "USA", "build_id": "weeklytest-low",  "logged_in": false },
+
+    { "name": "DEU_T2_HIGH_in",  "appStoreCountryCode": "DEU", "build_id": "weeklytest-high", "logged_in": true  },
+    { "name": "DEU_T2_HIGH_out", "appStoreCountryCode": "DEU", "build_id": "weeklytest-high", "logged_in": false },
+
+    { "name": "DEU_T2_LOW_in",   "appStoreCountryCode": "DEU", "build_id": "weeklytest-low",  "logged_in": true  },
+    { "name": "DEU_T2_LOW_out",  "appStoreCountryCode": "DEU", "build_id": "weeklytest-low",  "logged_in": false },
+    { "name": "DEU_T2_T2BUILD_in",  "appStoreCountryCode": "DEU", "build_id": "weeklytest-t2", "logged_in": true },
+    { "name": "DEU_T2_T2BUILD_out", "appStoreCountryCode": "DEU", "build_id": "weeklytest-t2", "logged_in": false }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "xdm": {
+        "eventType": "personalization.request",
+        "application": { "_dc": { "language": "" } },
+        "device": { "model": "iPhone14,7" }
+      },
+      "data": {
+        "__adobe": {
+          "target": {
+            "a.AppID": "LrMobilePhone 11.2.2 (11.2.2.31)",
+            "a.appID": "LrMobilePhone 11.2.2 (11.2.2.31)",
+            "a.DeviceName": "iPhone14,7",
+            "a.OSVersion": "iOS 26.2.1",
+            "a.locale": "en-US",
+
+            "appStoreCountryCode": "USA",
+            "a.build_id": "weeklytest-high",
+            "subscriptionStatus": "subscription_expired",
+            "premiumAccessType": "none"
+          }
+        }
+      },
+      "query": {
+        "personalization": {
+          "schemas": [
+            "https://ns.adobe.com/personalization/html-content-item",
+            "https://ns.adobe.com/personalization/json-content-item",
+            "https://ns.adobe.com/personalization/default-content-item",
+            "https://ns.adobe.com/experience/offer-management/content-component-html",
+            "https://ns.adobe.com/experience/offer-management/content-component-json",
+            "https://ns.adobe.com/experience/offer-management/content-component-imagelink",
+            "https://ns.adobe.com/experience/offer-management/content-component-text"
+          ],
+          "decisionScopes": [
+            "lrm.priceTesting.overviewScreen.productIds"
+          ]
+        }
+      }
+    }
+  ],
+  "xdm": {
+    "identityMap": {
+      "ECID": [{ "id": "47189776943622580549091473183752989906", "authenticatedState": "ambiguous", "primary": false }],
+      "adobeGUID": [{ "id": "26D855BE698E6CBE0A49420F@AdobeID", "authenticatedState": "authenticated", "primary": true }]
+    }
+  }
+}
